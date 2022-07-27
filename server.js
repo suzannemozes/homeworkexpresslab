@@ -1,8 +1,8 @@
-// Require modules
-const express = require('express');
+const express = require ('express');
+require('dotenv').config();
 
-// Create the Express app
 const app = express();
+const port = process.env.PORT || 3003;
 
 // Configure the app (app.set)
 const fs = require('fs') // this engine requires the fs module like we did Saturday
@@ -25,15 +25,15 @@ app.set('view engine', 'hypatia') // register the hypatia view engine
 
 // Mount routes
 app.get('/', (req, res) => {
-  res.render('template', { title: 'ciao', message: 'piacere', content: 'Sono Suz' })
+  res.render('template', { title: 'ciao', message: 'Piacere', content: 'Sono Suz' })
 })
 
 app.get('/ricchi', (req, res) => {
-  res.render('copytemplate', { title: 'Ricchi e Poveri', message: 'Sara perche ti amo', content: 'lyric' })
+  res.render('copytemplate', { title: 'Ricchi e Poveri', message: 'Ricchi e Poveri', content: 'Sara perche ti amo' })
 })
 
 app.get('/tozzi', (req, res) => {
-  res.render('copytemplate', { title: 'umberto tozzi', message: 'Ti Amo', content: 'lyric' })
+  res.render('copytemplate', { title: 'umberto tozzi', message: 'Tozzi', content: 'Ti Amo' })
 })
 
 app.get('/pettenati', (req, res) => {
